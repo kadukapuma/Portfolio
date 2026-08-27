@@ -16,7 +16,7 @@ const mountain1Y = useTransform(x, [0,0.5], ["0%", "0%"]);
         <div
           className="absolute inset-0 w-full h-screen -z-50"
           style={{
-            backgroundImage: "url(/assets/sky.jpg)",
+            backgroundImage: `url(${import.meta.env.BASE_URL}assets/sky.jpg)`,
             backgroundPosition: "bottom",
             backgroundSize: "cover"
           }}
@@ -25,7 +25,7 @@ const mountain1Y = useTransform(x, [0,0.5], ["0%", "0%"]);
         <motion.div
           className="absolute inset-0 -z-40"
           style={{
-            backgroundImage: "url(/assets/mountain-3.png)",
+            backgroundImage: `url(${import.meta.env.BASE_URL}assets/mountain-3.png)`,
             backgroundPosition: "bottom",
             backgroundSize: "cover",
             y:mountain3Y
@@ -35,7 +35,7 @@ const mountain1Y = useTransform(x, [0,0.5], ["0%", "0%"]);
         <motion.div
           className="absolute inset-0 -z-30"
           style={{
-            backgroundImage: "url(/assets/planets.png)",
+            backgroundImage: `url(${import.meta.env.BASE_URL}assets/planets.png)`,
             backgroundPosition: "bottom",
             backgroundSize: "cover",
             y:planetX
@@ -44,7 +44,7 @@ const mountain1Y = useTransform(x, [0,0.5], ["0%", "0%"]);
         {/* mountain layers 2 */}
         <motion.div  className="absolute inset-0 -z-20"
           style={{
-            backgroundImage: "url(/assets/mountain-2.png)",
+            backgroundImage: `url(${import.meta.env.BASE_URL}assets/mountain-2.png)`,
             backgroundPosition: "bottom",
             backgroundSize: "cover",
             y:mountain2Y
@@ -53,7 +53,7 @@ const mountain1Y = useTransform(x, [0,0.5], ["0%", "0%"]);
            {/* mountain layers 1 */}
         <motion.div  className="absolute inset-0 -z-20"
           style={{
-            backgroundImage: "url(/assets/mountain-1.png)",
+            backgroundImage: `url(${import.meta.env.BASE_URL}assets/mountain-1.png)`,
             backgroundPosition: "bottom",
             backgroundSize: "cover",
             y: mountain1Y

@@ -4,7 +4,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 
 export function Astronote(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/models/tenhun_falling_spaceman_fanart.glb')
+  const { nodes, materials, animations } = useGLTF(`${import.meta.env.BASE_URL}models/tenhun_falling_spaceman_fanart.glb`)
   const { actions } = useAnimations(animations, group)
   useEffect(()=> {
     if (animations.length>0 ){
@@ -100,5 +100,5 @@ export function Astronote(props) {
   )
 }
 
-useGLTF.preload('/models/tenhun_falling_spaceman_fanart.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}models/tenhun_falling_spaceman_fanart.glb`)
 

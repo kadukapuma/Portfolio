@@ -1,14 +1,14 @@
 import { motion } from 'motion/react'
 
 const skills = [
-  { name: 'JavaScript', icon: '/assets/logos/javascript.svg' },
+  { name: 'JavaScript', icon: `${import.meta.env.BASE_URL}assets/logos/javascript.svg` },
   { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
   { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
   { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
   { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg' },
   { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-  { name: 'React', icon: '/assets/logos/react.svg' },
-  { name: 'Three.js', icon: '/assets/logos/threejs.svg' },
+  { name: 'React', icon: `${import.meta.env.BASE_URL}assets/logos/react.svg` },
+  { name: 'Three.js', icon: `${import.meta.env.BASE_URL}assets/logos/threejs.svg` },
   { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
   { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
   { name: 'AWS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },

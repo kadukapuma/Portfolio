@@ -9,17 +9,17 @@ const quickLinks = [
 const socialLinks = [
   {
     name: 'LinkedIn',
-    icon: '/assets/socials/linkedIn.svg',
+    icon: `${import.meta.env.BASE_URL}assets/socials/linkedIn.svg`,
     href: 'https://linkedin.com/in/randika-kadukapuma',
   },
   {
     name: 'GitHub',
-    icon: '/assets/logos/github.svg', // Reusing an existing github icon if available
+    icon: `${import.meta.env.BASE_URL}assets/logos/github.svg`, // Reusing an existing github icon if available
     href: 'https://github.com/kadukapuma',
   },
   {
     name: 'WhatsApp',
-    icon: '/assets/socials/whatsApp.svg',
+    icon: `${import.meta.env.BASE_URL}assets/socials/whatsApp.svg`,
     href: 'tel:+94740789832',
   },
 ]

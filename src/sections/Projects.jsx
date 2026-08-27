@@ -8,10 +8,10 @@ const projects = [
       'An e-commerce platform built as an academic project featuring interactive 3D elements, secure RESTful APIs for user authentication, product management, and order processing.',
     detailedDescription:
       'This project involved building a comprehensive e-commerce platform from scratch. Key features include a robust user authentication system, seamless product catalog browsing with 3D models integrated using Three.js, a shopping cart, and a secure checkout process. The backend was powered by Express.js and MongoDB to handle high traffic and ensure data consistency.',
-    image: '/assets/projects/auth-system.jpg', // Placeholder image path, you can upload specific image if needed
+    image: `${import.meta.env.BASE_URL}assets/projects/auth-system.jpg`, // Placeholder image path, you can upload specific image if needed
     gallery: [
-      '/assets/projects/auth-system.jpg',
-      '/assets/projects/auth-system.jpg', // Placeholder
+      `${import.meta.env.BASE_URL}assets/projects/auth-system.jpg`,
+      `${import.meta.env.BASE_URL}assets/projects/auth-system.jpg`, // Placeholder
     ],
     tags: ['React', 'Express.js', 'MongoDB', 'Three.js'],
   },
@@ -21,11 +21,11 @@ const projects = [
       'Developed web applications and business logic using Laravel and managed responsive frontend components with Vue.js during time at Softmaster Technologies.',
     detailedDescription:
       'During my time at Softmaster Technologies, I worked on implementing tailored client systems. I was responsible for designing and developing efficient REST APIs using Laravel and building dynamic, responsive UI components with Vue.js. This improved the overall user experience and streamlined business operations for our clients.',
-    image: '/assets/projects/elearning.jpg',
+    image: `${import.meta.env.BASE_URL}assets/projects/elearning.jpg`,
     gallery: [
-      '/assets/projects/elearning.jpg',
-      '/assets/projects/elearning.jpg',
-      '/assets/projects/elearning.jpg', // Placeholder
+      `${import.meta.env.BASE_URL}assets/projects/elearning.jpg`,
+      `${import.meta.env.BASE_URL}assets/projects/elearning.jpg`,
+      `${import.meta.env.BASE_URL}assets/projects/elearning.jpg`, // Placeholder
     ],
     tags: ['Laravel', 'Vue.js', 'MySQL', 'APIs'],
   },

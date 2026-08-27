@@ -3,17 +3,17 @@ import { motion } from 'motion/react'
 const socials = [
   {
     name: 'LinkedIn',
-    icon: '/assets/socials/linkedIn.svg', // Ensure you have this placeholder or use text.
+    icon: `${import.meta.env.BASE_URL}assets/socials/linkedIn.svg`, // Ensure you have this placeholder or use text.
     href: 'https://linkedin.com/in/randika-kadukapuma',
   },
   {
     name: 'GitHub',
-    icon: '/assets/logos/github.svg', // Reusing an existing github icon
+    icon: `${import.meta.env.BASE_URL}assets/logos/github.svg`, // Reusing an existing github icon
     href: 'https://github.com/kadukapuma',
   },
   {
     name: 'WhatsApp/Phone',
-    icon: '/assets/socials/whatsApp.svg',
+    icon: `${import.meta.env.BASE_URL}assets/socials/whatsApp.svg`,
     href: 'tel:+94740789832',
   },
 ]
@@ -56,7 +56,7 @@ const Contact = () => {
             className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-white hover:bg-white/10"
           >
             Send Email
-            <img src="/assets/arrow-right.svg" alt="arrow" className="h-4 w-4" />
+            <img src={`${import.meta.env.BASE_URL}assets/arrow-right.svg`} alt="arrow" className="h-4 w-4" />
           </a>
         </article>
 

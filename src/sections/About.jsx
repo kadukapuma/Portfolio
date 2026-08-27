@@ -30,7 +30,7 @@ const About = () => {
           <div className="relative w-60 h-60 mb-6">
             <div className="absolute inset-0 bg-gradient-to-tr from-aqua via-royal to-lavender rounded-full blur-2xl opacity-40"></div>
             <img 
-              src="/assets/my_image/my_image2.png" 
+              src={`${import.meta.env.BASE_URL}assets/my_image/my_image2.png`} 
               alt="Randika" 
               className="relative w-full h-full rounded-2xl object-cover  ring-white/20 shadow-xl"
             />

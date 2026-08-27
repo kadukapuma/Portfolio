@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm run build
 
+RUN npm run deploy
+
 
 # Stage 2 - Serve React with Nginx
 FROM nginx:alpine
