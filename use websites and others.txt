@@ -1,0 +1,14 @@
+Aceternity UI for animating eliments
+sketchfab for 3d elimants
+
+libraries
+npm install
+
+npm install three @react-three/fiber @react-three/drei react-responsive math
+
+npm i tailwind-merge  
+
+npm install motion
+
+npm install tailwindcss @tailwindcss/vite 
+
