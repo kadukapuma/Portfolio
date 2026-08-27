@@ -10,13 +10,13 @@ COPY . .
 
 RUN npm run build
 
-RUN npm run deploy
 
 
 # Stage 2 - Serve React with Nginx
 FROM nginx:alpine
 
 COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html/Portfolio
 
 EXPOSE 80
 
