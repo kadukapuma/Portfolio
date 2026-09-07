@@ -18,12 +18,12 @@ const isMobile = useMediaQuery({maxWidth: 853});
           height: "100vh"
         }}>
 
-          <Canvas camera={{position:[3,1,3]}}>
+          <Canvas camera={{position:[3,1,8], fov: 40}}>
             <Suspense fallback={null}>
               <ambientLight intensity={1} />
               <directionalLight position={[10, 10, 10]} intensity={1.5} />
               <Environment preset="city" />
-              <Float speed={2} rotationIntensity={1.5} floatIntensity={1.5}>
+              <Float speed={1} rotationIntensity={1.5} floatIntensity={1.5}>
                 <ITModel
                   scale={isMobile ? 0.02 : 0.025} 
                   position={isMobile ? [0, -0.5, 0] : [1.5, -0.2, 0]}                   

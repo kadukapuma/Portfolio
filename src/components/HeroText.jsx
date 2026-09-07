@@ -10,23 +10,7 @@ const HeroText = () => {
 
   return (
     <div className="z-10 mt-20 text-center md:mt-36 md:text-left rounded-3xl bg-clip-text">
-      {/* Role / Availability Badge */}
-      <motion.div
-        variants={variants}
-        initial="hidden"
-        animate="visible"
-        transition={{ delay: 0.8 }}
-        className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full border border-mint/30 bg-mint/10 backdrop-blur-md shadow-lg"
-      >
-        <span className="relative flex h-2.5 w-2.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mint opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-mint"></span>
-        </span>
-        <span className="text-xs md:text-sm font-medium text-mint">
-          Software Engineer @ Smart Omega Group • Building <strong className="text-white">pickU</strong>
-        </span>
-      </motion.div>
-
+     
       {/* Desktop view */}
       <div className="flex-col hidden md:flex c-space">
         <motion.h1
@@ -109,7 +93,7 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            Building
+            A Software Engineer dedicated to crafting
           </motion.p>
           <motion.div
             variants={variants}
@@ -126,13 +110,17 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.8 }}
           >
-            Modern Web Applications
+            Solutions
           </motion.p>
         </div>
 
+     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-200vh"></div>
+     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-200vh"></div>
+     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-200vh"></div>
+     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-100vh"></div>
         {/* CTA Buttons - Mobile */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-9"
           variants={variants}
           initial="hidden"
           animate="visible"
