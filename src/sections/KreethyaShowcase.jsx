@@ -13,11 +13,11 @@ const kreethyaProject = {
   liveCta: 'Visit Live Website',
   ecosystem: [
     'Animated Logo Intro & Interactive Mascot Assistant',
-    'Services, Work Showcase (incl. DriveCare) & Delivery Process',
+    'Services, Work Showcase & Delivery Process',
     'Project Enquiry / Contact Flow',
   ],
   summaryBlurb:
-    'Kreethya.com is the public face of Kreethya, a software development company. Built with React and Vite with the React Compiler enabled, the site walks visitors through the company\'s services — web, mobile, custom software, UI/UX, cloud and support — showcases delivered products such as DriveCare, explains how projects are delivered and turns visitors into enquiries. An animated logo intro and a friendly mascot assistant give it personality, while optimised WebP imagery and responsive layouts keep it fast on every device.',
+    'Kreethya.com is the public face of Kreethya, a software development company. Built with React and Vite with the React Compiler enabled, the site walks visitors through the company\'s services — web, mobile, custom software, UI/UX, cloud and support — showcases the company’s delivered work, explains how projects are delivered and turns visitors into enquiries. An animated logo intro and a friendly mascot assistant give it personality, while optimised WebP imagery and responsive layouts keep it fast on every device.',
   challenge:
     'A company website has to do two jobs at once: make a strong first impression for a young software studio, and quickly prove credibility by showing real, delivered work. Kreethya.com needed rich motion and personality (an animated intro and a mascot assistant) without sacrificing load speed or mobile usability, plus a clear path from "what we do" to "start a project with us".',
   techStack: {
@@ -38,7 +38,7 @@ const kreethyaProject = {
       title: '2. Services & Delivered Work Showcase',
       points: [
         'Service sections covering web, mobile, custom software, UI/UX, cloud and support.',
-        'Portfolio of delivered products, including DriveCare — the real-time vehicle service booking & garage management ecosystem.',
+        'Work showcase presenting the company’s delivered projects to build credibility with new clients.',
         'Step-by-step delivery process section explaining how projects run from idea to launch.',
       ],
     },
@@ -57,7 +57,7 @@ const kreethyaProject = {
   cardHighlights: [
     { icon: '✨', title: 'Animated Brand Intro', text: 'Logo intro animation and an interactive mascot assistant.' },
     { icon: '🧩', title: 'Services & Process', text: 'Web, mobile, custom software, UI/UX, cloud & support, plus delivery process.' },
-    { icon: '🚗', title: 'Work Showcase', text: 'Presents delivered products such as the DriveCare ecosystem.' },
+    { icon: '💼', title: 'Work Showcase', text: 'Presents the company’s delivered projects and client work.' },
     { icon: '⚡', title: 'Fast & Responsive', text: 'React Compiler, WebP imagery and mobile-first responsive layouts.' },
   ],
 };

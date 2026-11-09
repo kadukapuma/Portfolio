@@ -20,7 +20,7 @@ const experiences = [
       'Modelled craftsman gold and cash accounts that track gold issued, returned and wastage, alongside barcode tagging and per-karat daily gold pricing.',
       'Built reporting for sales, profit, stock, wastage and balances, backed by a single schema.sql with tables, seed data and reporting views.',
       'Built FixFlow (fixflow.kreethya.com), a multi-tenant service center SaaS with a separate MySQL database per company resolved from the subdomain, and queued tenant provisioning.',
-      'Developed the Kreethya.com company website with React, Vite and the React Compiler — animated logo intro, mascot assistant, services, work showcase (including DriveCare) and enquiry flow.',
+      'Developed the Kreethya.com company website with React, Vite and the React Compiler — animated logo intro, mascot assistant, services, work showcase, delivery process and enquiry flow.',
       'Contributed to HP ERP (hp.kreethya.com) as a team project: a hire purchase ERP with agreements, instalments, multi-branch stock, purchasing and accounting on Laravel 11, Next.js and Docker.',
     ],
     projects: [

@@ -99,15 +99,15 @@ export const githubProjects = [
     description:
       'Official website for Kreethya (Pvt) Ltd, a software development company: animated hero, services, portfolio, process and contact sections.',
     detailedDescription:
-      'The public website for Kreethya (Pvt) Ltd, built with React and Vite using the React Compiler. It presents the company\'s services (web, mobile, custom software, UI/UX, cloud and support), showcases delivered products such as DriveCare, the real-time vehicle service booking and garage management ecosystem, explains the delivery process and collects project enquiries. It uses an animated intro, a friendly mascot assistant and responsive layouts tuned for mobile.',
+      'The public website for Kreethya (Pvt) Ltd, built with React and Vite using the React Compiler. It presents the company\'s services (web, mobile, custom software, UI/UX, cloud and support), showcases the company’s delivered work, explains the delivery process and collects project enquiries. It uses an animated intro, a friendly mascot assistant and responsive layouts tuned for mobile.',
     highlights: [
-      'Showcases DriveCare — real-time vehicle service booking & garage management ecosystem',
+      'Showcases the company’s services and delivered client work',
       'React + Vite with the React Compiler enabled',
       'Animated logo intro and interactive mascot assistant',
       'Services, work showcase, process and contact sections',
       'Optimised WebP project images and fully responsive layout',
     ],
-    tags: ['React', 'DriveCare', 'Vite', 'CSS', 'Responsive Design'],
+    tags: ['React', 'Vite', 'React Compiler', 'CSS', 'Responsive Design'],
     icons: ['react', 'vite'],
     accent: 'mint',
     image: img('kreethya-home.jpg'),

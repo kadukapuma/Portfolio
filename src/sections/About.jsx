@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 
 const stats = [
-  { label: 'Flagship Platform', value: 'aureon.kreethya.com' },
   { label: 'Current Role', value: 'Software Engineer' },
   { label: 'Company', value: 'Kreethya (Pvt) Ltd' },
   { label: 'Degree', value: 'BSc. in IT (SIBA)' },
@@ -179,7 +178,7 @@ const About = () => {
           {/* Degree */}
           <div className="p-5 rounded-2xl bg-white/5 border border-white/5">
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-xs font-semibold text-aqua uppercase tracking-wider">Undergraduate Degree</span>
+              <span className="text-xs font-semibold text-aqua uppercase tracking-wider">Bachelor&apos;s Degree • Graduated</span>
               <span className="text-xs text-neutral-400">2022 – 2025</span>
             </div>
             <h4 className="text-base font-bold text-white">BSc in Information Technology</h4>
@@ -224,7 +223,7 @@ const About = () => {
       </motion.div>
 
       {/* Metrics Row */}
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid gap-4 sm:grid-cols-3">
         {stats.map((item) => (
           <article
             key={item.label}
