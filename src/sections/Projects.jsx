@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { FaGithub } from 'react-icons/fa';
+import GithubProjects, { RepoCover } from './GithubProjects';
 
 const pickUProject = {
   id: 'picku',
@@ -285,55 +287,6 @@ const driveCareProject = {
     'MySQL / SQLite',
   ],
 };
-
-const supportingProjects = [
-  {
-    id: 'softmaster-erp',
-    title: 'Client Enterprise System Implementation',
-    category: 'Commercial Enterprise System',
-    status: 'Softmaster Technologies',
-    statusColor: 'border-royal/40 bg-royal/10 text-lavender',
-    description:
-      'Tailored business operations, inventory flows, and administrative workflow automation built for commercial clients using Laravel and Vue.js.',
-    detailedDescription:
-      'Engineered tailored enterprise systems to streamline client business operations, inventory tracking, and transaction reporting. Designed and documented clean RESTful APIs in Laravel, created reactive user interfaces with Vue.js, and structured relational MySQL schemas with optimized indexing for sub-second responses.',
-    highlights: [
-      'Custom administrative dashboards and operational reporting pipelines',
-      'Clean RESTful API architecture connecting frontend modules with backend logic',
-      'Optimized relational database queries for reduced server latency',
-      'Role-based permission systems and secure user management',
-    ],
-    image: `${import.meta.env.BASE_URL}assets/projects/elearning.jpg`,
-    gallery: [
-      `${import.meta.env.BASE_URL}assets/projects/elearning.jpg`,
-      `${import.meta.env.BASE_URL}assets/projects/accessories.jpg`,
-    ],
-    tags: ['Laravel', 'Vue.js', 'MySQL', 'REST APIs', 'Tailwind CSS'],
-  },
-  {
-    id: 'store-3d',
-    title: 'Interactive 3D Online Store',
-    category: 'Engineering & 3D Project',
-    status: 'Full-Stack & 3D Engineering',
-    statusColor: 'border-aqua/40 bg-aqua/10 text-aqua',
-    description:
-      'A full-stack e-commerce application integrating Three.js for interactive, 360-degree 3D model product rendering and shopping cart flows.',
-    detailedDescription:
-      'Full-stack online store leveraging Three.js and React to render realistic 3D model previews of products. Includes complete cart management, user authentication, and an Express.js & MongoDB backend for secure order and product processing.',
-    highlights: [
-      'Interactive 3D product viewports powered by Three.js & React',
-      'Secure JWT authentication and role-based access control',
-      'NoSQL database modeling with MongoDB for scalable catalog data',
-      'End-to-end shopping cart and checkout state management',
-    ],
-    image: `${import.meta.env.BASE_URL}assets/projects/auth-system.jpg`,
-    gallery: [
-      `${import.meta.env.BASE_URL}assets/projects/auth-system.jpg`,
-      `${import.meta.env.BASE_URL}assets/coding-pov.png`,
-    ],
-    tags: ['React', 'Express.js', 'MongoDB', 'Three.js', 'Node.js'],
-  },
-];
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -688,74 +641,14 @@ const Projects = () => {
         </motion.article>
       </div>
 
-      {/* SECTION 3: Additional Enterprise Systems & 3D Engineering */}
-      <div className="mt-14">
-        <h4 className="text-sm uppercase tracking-widest text-neutral-400 font-bold mb-4">
-          Additional Commercial &amp; Engineering Systems
-        </h4>
-        <div className="grid gap-8 md:grid-cols-2">
-          {supportingProjects.map((project, index) => (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="flex flex-col justify-between p-6 md:p-8 bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl shadow-xl transition-all duration-300 hover:border-white/20 hover:bg-white/[0.08] hover:-translate-y-1.5 cursor-pointer group"
-              onClick={() => setSelectedProject(project)}
-              title={`View details for ${project.title}`}
-            >
-              <div>
-                <div className="relative overflow-hidden rounded-2xl mb-5">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-56 md:h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <span className={`absolute top-3 right-3 text-xs font-semibold px-3 py-1.5 rounded-full border backdrop-blur-md ${project.statusColor}`}>
-                    {project.status}
-                  </span>
-                </div>
-
-                <p className="text-xs uppercase tracking-wider text-neutral-400 font-semibold">
-                  {project.category}
-                </p>
-                <h3 className="text-xl md:text-2xl font-bold text-white mt-1 group-hover:text-aqua transition-colors">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="mt-4 space-y-1.5">
-                  {project.highlights.map((h, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-neutral-300">
-                      <span className="text-mint mt-0.5">▹</span>
-                      <span>{h}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.slice(0, 4).map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-neutral-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <span className="text-xs font-semibold text-aqua group-hover:underline shrink-0 ml-2">
-                  View Details &rarr;
-                </span>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </div>
+      {/* SECTION 3: Projects from public GitHub repositories */}
+      <GithubProjects
+        onSelect={(project) => {
+          setGalleryFilter('all');
+          setSelectedProject(project);
+        }}
+        onOpenImage={setLightboxImage}
+      />
 
       {/* Comprehensive Case Study Modal */}
       <AnimatePresence>
@@ -804,22 +697,46 @@ const Projects = () => {
                   <h2 className="text-2xl md:text-4xl font-extrabold text-white">
                     {selectedProject.title}
                   </h2>
-                  {selectedProject.liveUrl && (
-                    <div className="mt-3 flex items-center gap-3">
-                      <a
-                        href={selectedProject.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-mint/40 bg-mint/10 px-4 py-1.5 text-xs font-bold text-mint hover:bg-mint/20 transition-colors"
-                      >
-                        <span>Visit Live Platform: picku.lk</span>
-                        <span>↗</span>
-                      </a>
+                  {(selectedProject.liveUrl || selectedProject.repoUrl) && (
+                    <div className="mt-3 flex flex-wrap items-center gap-3">
+                      {selectedProject.liveUrl && (
+                        <a
+                          href={selectedProject.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-mint/40 bg-mint/10 px-4 py-1.5 text-xs font-bold text-mint hover:bg-mint/20 transition-colors"
+                        >
+                          <span>
+                            {selectedProject.liveCta
+                              ? `${selectedProject.liveCta}: ${selectedProject.liveLabel}`
+                              : `Visit Live Platform: ${selectedProject.liveLabel || 'picku.lk'}`}
+                          </span>
+                          <span>↗</span>
+                        </a>
+                      )}
+                      {selectedProject.repoUrl && (
+                        <a
+                          href={selectedProject.repoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-xs font-bold text-neutral-200 hover:bg-white/10 transition-colors"
+                        >
+                          <FaGithub size={14} />
+                          <span>View Source on GitHub</span>
+                          <span>↗</span>
+                        </a>
+                      )}
                     </div>
                   )}
                 </div>
 
+                {/* Generated cover for repos without screenshots */}
+                {selectedProject.gallery.length === 0 && selectedProject.repoUrl && (
+                  <RepoCover project={selectedProject} className="h-56 rounded-2xl border border-white/10" />
+                )}
+
                 {/* Gallery Header & Filter Tabs */}
+                {selectedProject.gallery.length > 0 && (
                 <div className="space-y-3">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
@@ -953,6 +870,7 @@ const Projects = () => {
                       })}
                   </div>
                 </div>
+                )}
 
                 {/* Case Study Details */}
                 {selectedProject.challenge ? (
