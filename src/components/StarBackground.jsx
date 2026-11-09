@@ -1,6 +1,7 @@
 import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
+import { useMediaQuery } from "react-responsive";
 import * as random from "maath/random/dist/maath-random.esm";
 
 const StarBackground = (props) => {
@@ -30,6 +31,9 @@ const StarBackground = (props) => {
 };
 
 const StarsCanvas = () => {
+  const isMobile = useMediaQuery({ maxWidth: 853 });
+  // Stars background is desktop-only (too heavy for mobile GPUs)
+  if (isMobile) return null;
   return (
     <div className="w-full h-full fixed inset-0 z-[-1] pointer-events-none">
       <Canvas camera={{ position: [0, 0, 1] }}>
