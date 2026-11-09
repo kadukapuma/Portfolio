@@ -12,10 +12,68 @@ const pickUProject = {
   liveUrl: 'https://picku.lk',
   status: 'Live in Production • picku.lk',
   statusColor: 'border-mint/40 bg-mint/10 text-mint',
-  image: `${import.meta.env.BASE_URL}assets/projects/blazor-app.jpg`,
+  image: `${import.meta.env.BASE_URL}assets/picku/passenger-book-ride.webp`,
+  galleryTabs: [
+    { key: 'passenger', label: 'Passenger App' },
+    { key: 'driver', label: 'Driver App' },
+  ],
   gallery: [
-    `${import.meta.env.BASE_URL}assets/projects/blazor-app.jpg`,
-    `${import.meta.env.BASE_URL}assets/projects/auth-system.jpg`,
+    {
+      src: `${import.meta.env.BASE_URL}assets/picku/passenger-book-ride.webp`,
+      title: 'Book Your Ride',
+      category: 'Passenger App',
+      group: 'passenger',
+      isMobile: true,
+      description: 'Home screen with ride, delivery, courier and food services — find nearby drivers and book in seconds.',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}assets/picku/passenger-choose-ride.webp`,
+      title: 'Choose Your Ride',
+      category: 'Passenger App',
+      group: 'passenger',
+      isMobile: true,
+      description: 'Car, Tuk Tuk and Motorbike options with dynamic fares, ETAs, ratings and trip distance.',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}assets/picku/passenger-live-tracking.webp`,
+      title: 'Track Your Ride Live',
+      category: 'Passenger App',
+      group: 'passenger',
+      isMobile: true,
+      description: "Real-time driver location and trip progress over WebSockets, with call and chat to the driver.",
+    },
+    {
+      src: `${import.meta.env.BASE_URL}assets/picku/driver-online.webp`,
+      title: 'Drive. Earn. Grow.',
+      category: 'Driver App',
+      group: 'driver',
+      isMobile: true,
+      description: "Online/offline toggle, today's earnings and live map while background GPS streams the driver's position.",
+    },
+    {
+      src: `${import.meta.env.BASE_URL}assets/picku/driver-accept-trip.webp`,
+      title: 'Accept Trips Instantly',
+      category: 'Driver App',
+      group: 'driver',
+      isMobile: true,
+      description: 'Incoming ride offer with pickup, drop-off, estimated fare and an auto-reject countdown from the dispatch queue.',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}assets/picku/driver-pickup.webp`,
+      title: 'Pick Up on the Location',
+      category: 'Driver App',
+      group: 'driver',
+      isMobile: true,
+      description: 'Turn-by-turn route to the pickup with remaining distance, ETA and one-tap call or message to the passenger.',
+    },
+    {
+      src: `${import.meta.env.BASE_URL}assets/picku/driver-earnings.webp`,
+      title: 'Track Your Income',
+      category: 'Driver App',
+      group: 'driver',
+      isMobile: true,
+      description: 'Daily, weekly and monthly earnings with platform fee breakdown from the double-entry ledger.',
+    },
   ],
   ecosystem: [
     'Passenger & Driver Mobile Apps (iOS & Android)',
@@ -295,6 +353,8 @@ const driveCareProject = {
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [driveCareActiveIndex, setDriveCareActiveIndex] = useState(0);
+  const [pickUActiveIndex, setPickUActiveIndex] = useState(0);
+  const pickUActive = pickUProject.gallery[pickUActiveIndex];
   const [galleryFilter, setGalleryFilter] = useState('all');
   const [lightboxImage, setLightboxImage] = useState(null);
 
@@ -341,19 +401,89 @@ const Projects = () => {
           <div className="flex flex-col lg:flex-row gap-8 items-start">
             {/* Left Column: Image & Components */}
             <div className="w-full lg:w-5/12 flex flex-col gap-4">
+              {/* Main Screenshot Preview */}
               <div
-                className="relative overflow-hidden rounded-2xl border border-white/10 group cursor-pointer"
-                onClick={() => setSelectedProject(pickUProject)}
+                className="relative overflow-hidden rounded-2xl border border-white/10 group cursor-pointer bg-neutral-950 h-96 md:h-[28rem] flex items-center justify-center"
+                onClick={() => setLightboxImage(pickUActive)}
+                title="Click to view full size screenshot"
               >
-                <img loading="lazy" decoding="async"
-                  src={pickUProject.image}
-                  alt={pickUProject.title}
-                  className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                {/* Ambient Blurred Backdrop */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center filter blur-2xl opacity-30 scale-110 transition-all duration-500"
+                  style={{ backgroundImage: `url(${pickUActive.src})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-5">
-                  <span className="text-xs font-semibold px-3 py-1.5 rounded-full border border-mint/40 bg-mint/10 text-mint backdrop-blur-md">
+
+                <img loading="lazy" decoding="async"
+                  src={pickUActive.src}
+                  alt={pickUActive.title}
+                  className="relative z-10 h-full max-h-[94%] w-auto object-contain rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.8)] border border-white/20 transition-all duration-300 group-hover:scale-[1.02]"
+                />
+
+                <div className="absolute top-0 inset-x-0 z-20 p-4 pointer-events-none">
+                  <span className="text-[11px] font-semibold px-3 py-1.5 rounded-full border border-mint/40 bg-black/60 text-mint backdrop-blur-md">
                     {pickUProject.status}
                   </span>
+                </div>
+
+                <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex items-end justify-between p-4 pointer-events-none">
+                  <div className="flex flex-col gap-1 max-w-[75%]">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full border border-mint/40 bg-mint/20 text-mint backdrop-blur-md self-start">
+                      {pickUActive.category}
+                    </span>
+                    <p className="text-xs font-bold text-white line-clamp-1">
+                      {pickUActive.title}
+                    </p>
+                  </div>
+                  <span className="text-[10px] font-medium text-aqua bg-black/75 px-2.5 py-1 rounded-full border border-white/15 backdrop-blur-md">
+                    🔍 Full Size
+                  </span>
+                </div>
+              </div>
+
+              {/* Screenshot Selector Thumbnails */}
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[11px] uppercase tracking-wider font-semibold text-neutral-400">
+                    Passenger &amp; Driver App Screens:
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setGalleryFilter('all');
+                      setSelectedProject(pickUProject);
+                    }}
+                    className="text-aqua text-[10px] font-medium hover:underline cursor-pointer"
+                  >
+                    View all {pickUProject.gallery.length} screens &rarr;
+                  </button>
+                </div>
+                <div className="grid grid-cols-7 gap-1.5">
+                  {pickUProject.gallery.map((item, idx) => (
+                    <button
+                      key={item.title}
+                      type="button"
+                      onClick={() => setPickUActiveIndex(idx)}
+                      className={`relative h-20 rounded-xl overflow-hidden border transition-all cursor-pointer bg-neutral-900 ${
+                        pickUActiveIndex === idx
+                          ? 'border-mint ring-2 ring-mint/50 scale-[1.03]'
+                          : 'border-white/10 opacity-70 hover:opacity-100 hover:border-white/30'
+                      }`}
+                      title={`${item.category}: ${item.title}`}
+                    >
+                      <img loading="lazy" decoding="async"
+                        src={item.src}
+                        alt={item.title}
+                        className="w-full h-full object-cover object-top"
+                      />
+                      <span
+                        className={`absolute bottom-0 inset-x-0 text-[8px] font-bold text-center py-0.5 uppercase ${
+                          item.group === 'driver' ? 'bg-black/85 text-aqua' : 'bg-black/85 text-mint'
+                        }`}
+                      >
+                        {item.group}
+                      </span>
+                    </button>
+                  ))}
                 </div>
               </div>
 
@@ -439,7 +569,10 @@ const Projects = () => {
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <button
-                  onClick={() => setSelectedProject(pickUProject)}
+                  onClick={() => {
+                    setGalleryFilter('all');
+                    setSelectedProject(pickUProject);
+                  }}
                   className="rounded-full bg-gradient-to-r from-royal to-lavender px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-royal/30 hover:scale-105 hover:shadow-royal/50 transition-all cursor-pointer"
                 >
                   Explore Full Case Study &amp; Architecture
@@ -771,7 +904,28 @@ const Projects = () => {
                     </div>
 
                     {/* Filter Tabs if project has categorized gallery */}
-                    {selectedProject.gallery.some((item) => typeof item === 'object' && item.isMobile !== undefined) && (
+                    {selectedProject.galleryTabs ? (
+                      <div className="flex items-center gap-1.5 p-1 bg-white/5 border border-white/10 rounded-full text-xs">
+                        {[{ key: 'all', label: 'All' }, ...selectedProject.galleryTabs].map((tab) => (
+                          <button
+                            key={tab.key}
+                            type="button"
+                            onClick={() => setGalleryFilter(tab.key)}
+                            className={`px-3 py-1 rounded-full font-semibold transition-all cursor-pointer ${
+                              galleryFilter === tab.key
+                                ? 'bg-lavender text-neutral-950 shadow-md'
+                                : 'text-neutral-300 hover:text-white'
+                            }`}
+                          >
+                            {tab.label} (
+                            {tab.key === 'all'
+                              ? selectedProject.gallery.length
+                              : selectedProject.gallery.filter((item) => item.group === tab.key).length}
+                            )
+                          </button>
+                        ))}
+                      </div>
+                    ) : selectedProject.gallery.some((item) => typeof item === 'object' && item.isMobile !== undefined) && (
                       <div className="flex items-center gap-1.5 p-1 bg-white/5 border border-white/10 rounded-full text-xs">
                         <button
                           type="button"
@@ -814,6 +968,9 @@ const Projects = () => {
                   <div className="grid gap-4 sm:grid-cols-2">
                     {selectedProject.gallery
                       .filter((item) => {
+                        if (selectedProject.galleryTabs) {
+                          return galleryFilter === 'all' || item.group === galleryFilter;
+                        }
                         const hasMobileFlag = typeof item === 'object' && item.isMobile !== undefined;
                         if (!hasMobileFlag || galleryFilter === 'all') return true;
                         if (galleryFilter === 'mobile') return typeof item === 'object' && item.isMobile;
