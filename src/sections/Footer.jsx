@@ -77,7 +77,7 @@ const Footer = () => {
                 aria-label={social.name}
                 title={social.name}
               >
-                <img src={social.icon} alt={social.name} className="h-4 w-4" />
+                <img loading="lazy" decoding="async" src={social.icon} alt={social.name} className="h-4 w-4" />
               </a>
             ))}
           </div>

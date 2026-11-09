@@ -61,7 +61,7 @@ const About = () => {
           <div className="flex flex-col items-center w-full">
             <div className="relative w-52 h-52 mb-6">
               <div className="absolute inset-0 bg-gradient-to-tr from-aqua via-royal to-lavender rounded-3xl blur-2xl opacity-40"></div>
-              <img
+              <img loading="lazy" decoding="async"
                 src={`${import.meta.env.BASE_URL}assets/my_image/me.png`}
                 alt="Randika Kadukapuma"
                 className="relative w-full h-full  ring-white/20 shadow-2xl"

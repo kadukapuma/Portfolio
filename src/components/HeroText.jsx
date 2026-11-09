@@ -114,10 +114,6 @@ const HeroText = () => {
           </motion.p>
         </div>
 
-     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-200vh"></div>
-     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-200vh"></div>
-     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-200vh"></div>
-     <div className="flex flex-col items-center justify-center gap-3 pt-9 md:hidden mt-100vh"></div>
         {/* CTA Buttons - Mobile */}
         <motion.div
           className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-9"

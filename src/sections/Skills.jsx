@@ -93,7 +93,7 @@ const Skills = () => {
                   key={skill.name}
                   className="flex items-center gap-2 p-2.5 rounded-2xl bg-white/5 border border-white/5 hover:border-white/15 hover:bg-white/10 transition-all"
                 >
-                  <img src={skill.icon} alt={skill.name} className="h-5 w-5 object-contain shrink-0" />
+                  <img loading="lazy" decoding="async" src={skill.icon} alt={skill.name} className="h-5 w-5 object-contain shrink-0" />
                   <span className="text-xs font-medium text-neutral-200 truncate">
                     {skill.name}
                   </span>

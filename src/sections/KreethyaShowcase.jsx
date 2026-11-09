@@ -85,7 +85,7 @@ const KreethyaShowcase = ({ onSelect, onOpenImage }) => {
             onClick={() => onOpenImage(current)}
             title="Click to view full screen"
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={current.src}
               alt={current.title}
               className="w-full h-64 md:h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105"
@@ -111,7 +111,7 @@ const KreethyaShowcase = ({ onSelect, onOpenImage }) => {
                     idx === active ? 'border-aqua ring-1 ring-aqua/50' : 'border-white/10 opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={shot.src} alt={shot.title} className="w-full h-full object-cover object-top" />
+                  <img loading="lazy" decoding="async" src={shot.src} alt={shot.title} className="w-full h-full object-cover object-top" />
                   <span className="absolute bottom-0 inset-x-0 bg-black/85 text-[9px] font-bold text-center py-0.5 text-neutral-300 truncate px-1">
                     {shot.title}
                   </span>

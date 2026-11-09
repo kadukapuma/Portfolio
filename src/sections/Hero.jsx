@@ -16,10 +16,12 @@ class CanvasErrorBoundary extends Component {
 const Hero = () => {
 const isMobile = useMediaQuery({maxWidth: 853});
   return (
-    <section id="home" className="flex items-start justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space">
+    <section id="home" className={`flex items-start justify-center md:items-start md:justify-start overflow-hidden c-space ${isMobile ? "pb-16" : "min-h-screen"}`}>
         <HeroText/>
         {/* Parallax background is desktop-only */}
         {!isMobile && <ParallxBackground/>}
+        {/* 3D model is desktop-only: the 6MB model freezes phones */}
+        {!isMobile && (
         <figure className={`absolute inset-y-0 right-0 w-full md:w-[70vw] ${isMobile ? "pointer-events-none" : ""}`}
         style={{
           height: "100vh"
@@ -50,6 +52,7 @@ const isMobile = useMediaQuery({maxWidth: 853});
             </Canvas>
           </CanvasErrorBoundary>
         </figure>
+        )}
     </section>
 
   )

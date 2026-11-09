@@ -94,4 +94,7 @@ export function ITModel(props) {
   )
 }
 
-useGLTF.preload(`${import.meta.env.BASE_URL}models/retrofuturistic_computer.glb`)
+// Only preload on desktop; the model is not shown on mobile
+if (typeof window !== 'undefined' && !window.matchMedia('(max-width: 853px)').matches) {
+  useGLTF.preload(`${import.meta.env.BASE_URL}models/retrofuturistic_computer.glb`)
+}

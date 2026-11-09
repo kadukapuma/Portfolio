@@ -109,7 +109,7 @@ export const ProjectShowcase = ({ project, reverse, onSelect, onOpenImage }) => 
             title={current ? 'Click to view full size screenshot' : 'View project details'}
           >
             {current ? (
-              <img
+              <img loading="lazy" decoding="async"
                 src={current.src}
                 alt={current.title}
                 className="w-full h-64 md:h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105"
@@ -143,7 +143,7 @@ export const ProjectShowcase = ({ project, reverse, onSelect, onOpenImage }) => 
                       : 'border-white/10 opacity-70 hover:opacity-100 hover:border-white/30'
                   }`}
                 >
-                  <img src={shot.src} alt={shot.title} className="w-full h-full object-cover object-top" />
+                  <img loading="lazy" decoding="async" src={shot.src} alt={shot.title} className="w-full h-full object-cover object-top" />
                   <span className="absolute bottom-0 inset-x-0 bg-black/85 text-[9px] font-bold text-center py-0.5 text-neutral-300 truncate px-0.5">
                     {shot.title}
                   </span>

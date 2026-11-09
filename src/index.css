@@ -55,6 +55,16 @@ body {
   overflow-x: hidden;
 }
 
+/* Mobile only: backdrop blur is very expensive on phone GPUs and makes scrolling freeze */
+@media (max-width: 853px) {
+  *,
+  *::before,
+  *::after {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
 .c-space {
   @apply sm:px-10 px-5 lg:px-15;
 }

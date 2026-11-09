@@ -128,7 +128,7 @@ const Contact = () => {
           className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white transition-all cursor-pointer"
           title="Copy email to clipboard"
         >
-          <img
+          <img loading="lazy" decoding="async"
             src={copied ? `${import.meta.env.BASE_URL}assets/copy-done.svg` : `${import.meta.env.BASE_URL}assets/copy.svg`}
             alt="copy"
             className="h-3.5 w-3.5"
@@ -163,7 +163,7 @@ const Contact = () => {
                   className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-neutral-200 transition-colors cursor-pointer"
                   aria-label="Copy Email"
                 >
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={copied ? `${import.meta.env.BASE_URL}assets/copy-done.svg` : `${import.meta.env.BASE_URL}assets/copy.svg`}
                     alt="copy"
                     className="h-4 w-4"
@@ -200,7 +200,7 @@ const Contact = () => {
                   aria-label={social.name}
                   title={social.name}
                 >
-                  <img src={social.icon} alt={social.name} className="h-5 w-5" />
+                  <img loading="lazy" decoding="async" src={social.icon} alt={social.name} className="h-5 w-5" />
                 </a>
               ))}
             </div>
@@ -266,7 +266,7 @@ const Contact = () => {
               className="mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-royal to-lavender py-3.5 px-6 text-sm font-semibold text-white shadow-lg shadow-royal/30 hover:shadow-royal/50 hover:scale-[1.02] transition-all cursor-pointer"
             >
               {status === 'sending' ? 'Sending...' : 'Send Message'}
-              <img src={`${import.meta.env.BASE_URL}assets/arrow-right.svg`} alt="arrow" className="h-4 w-4" />
+              <img loading="lazy" decoding="async" src={`${import.meta.env.BASE_URL}assets/arrow-right.svg`} alt="arrow" className="h-4 w-4" />
             </button>
 
             {status === 'success' && (

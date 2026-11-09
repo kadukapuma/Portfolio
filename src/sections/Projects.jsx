@@ -345,7 +345,7 @@ const Projects = () => {
                 className="relative overflow-hidden rounded-2xl border border-white/10 group cursor-pointer"
                 onClick={() => setSelectedProject(pickUProject)}
               >
-                <img
+                <img loading="lazy" decoding="async"
                   src={pickUProject.image}
                   alt={pickUProject.title}
                   className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
@@ -503,7 +503,7 @@ const Projects = () => {
                 />
 
                 {/* The Uncropped Screenshot */}
-                <img
+                <img loading="lazy" decoding="async"
                   src={driveCareCardScreenshots[driveCareActiveIndex].src}
                   alt={driveCareCardScreenshots[driveCareActiveIndex].title}
                   className={`relative z-10 transition-all duration-300 group-hover:scale-[1.02] ${
@@ -555,7 +555,7 @@ const Projects = () => {
                       }`}
                       title={item.caption}
                     >
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={item.src}
                         alt={item.title}
                         className={`w-full h-full ${item.isMobile ? 'object-contain bg-neutral-900 p-0.5' : 'object-cover'}`}
@@ -848,7 +848,7 @@ const Projects = () => {
                                 />
                               )}
 
-                              <img
+                              <img loading="lazy" decoding="async"
                                 src={src}
                                 alt={title}
                                 className={`relative z-10 transition-transform duration-500 group-hover:scale-[1.03] ${
@@ -1028,7 +1028,7 @@ const Projects = () => {
               exit={{ scale: 0.92, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <img
+              <img loading="lazy" decoding="async"
                 src={typeof lightboxImage === 'string' ? lightboxImage : lightboxImage.src}
                 alt={typeof lightboxImage === 'object' ? lightboxImage.title : 'Screenshot preview'}
                 className="max-h-[75vh] md:max-h-[80vh] max-w-[95vw] w-auto h-auto object-contain rounded-2xl shadow-[0_0_60px_rgba(0,0,0,0.9)] border border-white/20"
