@@ -1,6 +1,17 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import emailjs from '@emailjs/browser';
+import {
+  FaLinkedinIn,
+  FaGithub,
+  FaWhatsapp,
+  FaRegCopy,
+  FaCheck,
+  FaPaperPlane,
+  FaEnvelope,
+  FaPhone,
+  FaLocationDot,
+} from 'react-icons/fa6';
 
 // EmailJS config (set these in .env / GitHub Actions secrets)
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -11,17 +22,17 @@ const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const socials = [
   {
     name: 'LinkedIn',
-    icon: `${import.meta.env.BASE_URL}assets/socials/linkedIn.svg`,
+    icon: FaLinkedinIn,
     href: 'https://linkedin.com/in/randika-kadukapuma',
   },
   {
     name: 'GitHub',
-    icon: `${import.meta.env.BASE_URL}assets/logos/github.svg`,
+    icon: FaGithub,
     href: 'https://github.com/kadukapuma',
   },
   {
     name: 'WhatsApp',
-    icon: `${import.meta.env.BASE_URL}assets/socials/whatsApp.svg`,
+    icon: FaWhatsapp,
     href: 'https://wa.me/94740789832',
   },
 ];
@@ -128,11 +139,7 @@ const Contact = () => {
           className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full border border-white/20 bg-white/10 hover:bg-white/20 text-white transition-all cursor-pointer"
           title="Copy email to clipboard"
         >
-          <img loading="lazy" decoding="async"
-            src={copied ? `${import.meta.env.BASE_URL}assets/copy-done.svg` : `${import.meta.env.BASE_URL}assets/copy.svg`}
-            alt="copy"
-            className="h-3.5 w-3.5"
-          />
+          {copied ? <FaCheck className="h-3.5 w-3.5 text-mint" /> : <FaRegCopy className="h-3.5 w-3.5" />}
           {copied ? 'Copied to Clipboard!' : 'Copy Email'}
         </button>
       </motion.div>
@@ -155,7 +162,7 @@ const Contact = () => {
             <div className="flex flex-col gap-4 mt-6 text-sm text-neutral-300">
               <div className="flex items-center justify-between p-3.5 rounded-2xl bg-white/5 border border-white/5">
                 <div>
-                  <p className="text-xs text-neutral-400">Email Address</p>
+                  <p className="text-xs text-neutral-400 flex items-center gap-1.5"><FaEnvelope className="h-3 w-3 text-aqua" /> Email Address</p>
                   <p className="font-semibold text-white mt-0.5">{email}</p>
                 </div>
                 <button
@@ -163,23 +170,19 @@ const Contact = () => {
                   className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-neutral-200 transition-colors cursor-pointer"
                   aria-label="Copy Email"
                 >
-                  <img loading="lazy" decoding="async"
-                    src={copied ? `${import.meta.env.BASE_URL}assets/copy-done.svg` : `${import.meta.env.BASE_URL}assets/copy.svg`}
-                    alt="copy"
-                    className="h-4 w-4"
-                  />
+                  {copied ? <FaCheck className="h-4 w-4 text-mint" /> : <FaRegCopy className="h-4 w-4" />}
                 </button>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5">
-                <p className="text-xs text-neutral-400">Direct Phone / WhatsApp</p>
+                <p className="text-xs text-neutral-400 flex items-center gap-1.5"><FaPhone className="h-3 w-3 text-aqua" /> Direct Phone / WhatsApp</p>
                 <a href="https://wa.me/94740789832" target="_blank" rel="noreferrer" className="font-semibold text-white hover:text-aqua transition-colors mt-0.5 inline-block">
                   +94 740 789 832
                 </a>
               </div>
 
               <div className="p-3.5 rounded-2xl bg-white/5 border border-white/5">
-                <p className="text-xs text-neutral-400">Location</p>
+                <p className="text-xs text-neutral-400 flex items-center gap-1.5"><FaLocationDot className="h-3 w-3 text-aqua" /> Location</p>
                 <p className="font-semibold text-white mt-0.5">Kandy / Menikhinna, Sri Lanka</p>
               </div>
             </div>
@@ -200,7 +203,7 @@ const Contact = () => {
                   aria-label={social.name}
                   title={social.name}
                 >
-                  <img loading="lazy" decoding="async" src={social.icon} alt={social.name} className="h-5 w-5" />
+                  <social.icon className="h-5 w-5 text-neutral-200" aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -266,7 +269,7 @@ const Contact = () => {
               className="mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-royal to-lavender py-3.5 px-6 text-sm font-semibold text-white shadow-lg shadow-royal/30 hover:shadow-royal/50 hover:scale-[1.02] transition-all cursor-pointer"
             >
               {status === 'sending' ? 'Sending...' : 'Send Message'}
-              <img loading="lazy" decoding="async" src={`${import.meta.env.BASE_URL}assets/arrow-right.svg`} alt="arrow" className="h-4 w-4" />
+              <FaPaperPlane className="h-3.5 w-3.5" />
             </button>
 
             {status === 'success' && (

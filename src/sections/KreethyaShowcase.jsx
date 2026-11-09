@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { FaGithub } from 'react-icons/fa';
 import { githubProjects } from '../constants/githubProjects';
+import { FaArrowUpRightFromSquare, FaCircleCheck, FaArrowRight, FaWandMagicSparkles, FaPuzzlePiece, FaBriefcase, FaGaugeHigh } from 'react-icons/fa6';
 
 const base = githubProjects.find((p) => p.id === 'kreethya-website');
 
@@ -55,10 +56,10 @@ const kreethyaProject = {
     },
   ],
   cardHighlights: [
-    { icon: '✨', title: 'Animated Brand Intro', text: 'Logo intro animation and an interactive mascot assistant.' },
-    { icon: '🧩', title: 'Services & Process', text: 'Web, mobile, custom software, UI/UX, cloud & support, plus delivery process.' },
-    { icon: '💼', title: 'Work Showcase', text: 'Presents the company’s delivered projects and client work.' },
-    { icon: '⚡', title: 'Fast & Responsive', text: 'React Compiler, WebP imagery and mobile-first responsive layouts.' },
+    { icon: FaWandMagicSparkles, title: 'Animated Brand Intro', text: 'Logo intro animation and an interactive mascot assistant.' },
+    { icon: FaPuzzlePiece, title: 'Services & Process', text: 'Web, mobile, custom software, UI/UX, cloud & support, plus delivery process.' },
+    { icon: FaBriefcase, title: 'Work Showcase', text: 'Presents the company’s delivered projects and client work.' },
+    { icon: FaGaugeHigh, title: 'Fast & Responsive', text: 'React Compiler, WebP imagery and mobile-first responsive layouts.' },
   ],
 };
 
@@ -124,7 +125,7 @@ const KreethyaShowcase = ({ onSelect, onOpenImage }) => {
             <p className="text-xs uppercase font-bold tracking-wider text-neutral-400">Website Experience</p>
             {p.ecosystem.map((comp) => (
               <div key={comp} className="flex items-center gap-2 text-xs text-neutral-200">
-                <span className="text-mint">✓</span>
+                <FaCircleCheck className="h-3 w-3 shrink-0 text-mint" />
                 <span>{comp}</span>
               </div>
             ))}
@@ -143,9 +144,7 @@ const KreethyaShowcase = ({ onSelect, onOpenImage }) => {
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-aqua hover:underline"
               >
                 <span>Visit {p.liveLabel}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3 h-3">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
+                <FaArrowRight className="w-3 h-3" />
               </a>
             </div>
 
@@ -159,8 +158,8 @@ const KreethyaShowcase = ({ onSelect, onOpenImage }) => {
               <div className="grid gap-2.5 sm:grid-cols-2 text-xs text-neutral-200">
                 {p.cardHighlights.map((h) => (
                   <div key={h.title} className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                    <strong className="text-white block mb-1">
-                      {h.icon} {h.title}
+                    <strong className="text-white flex items-center gap-1.5 mb-1">
+                      <h.icon className="shrink-0 text-aqua" /> {h.title}
                     </strong>
                     {h.text}
                   </div>
@@ -191,7 +190,7 @@ const KreethyaShowcase = ({ onSelect, onOpenImage }) => {
               className="rounded-full border border-mint/30 bg-mint/10 px-6 py-3 text-sm font-semibold text-mint hover:bg-mint/20 hover:scale-105 transition-all inline-flex items-center gap-2"
             >
               <span>Visit Live Website ({p.liveLabel})</span>
-              <span className="text-xs">↗</span>
+              <FaArrowUpRightFromSquare className="h-3 w-3" />
             </a>
             <a
               href={p.repoUrl}

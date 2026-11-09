@@ -1,4 +1,13 @@
 import { motion } from 'motion/react';
+import {
+  FaBolt,
+  FaLocationDot,
+  FaMobileScreenButton,
+  FaScaleBalanced,
+  FaLaptopCode,
+  FaGraduationCap,
+  FaCircle,
+} from 'react-icons/fa6';
 
 const stats = [
   { label: 'Current Role', value: 'Software Engineer' },
@@ -8,25 +17,25 @@ const stats = [
 
 const engineeringPillars = [
   {
-    icon: '⚡',
+    icon: FaBolt,
     title: 'Distributed Systems & Scalable APIs',
     description:
       'Designing high-concurrency RESTful architectures and event-driven backends using Laravel 12, PostgreSQL, Redis queues, and transactional integrity.',
   },
   {
-    icon: '📍',
+    icon: FaLocationDot,
     title: 'Geospatial Dispatch & Real-Time Telemetry',
     description:
       'Implementing sub-second spatial discovery with PostGIS geospatial indexing, headless background GPS coordinate tracking, and telemetry noise filtering.',
   },
   {
-    icon: '📱',
+    icon: FaMobileScreenButton,
     title: 'Cross-Platform Mobile Ecosystems',
     description:
       'Building performant, fluid iOS and Android passenger and driver applications with React Native (Expo 54), NativeWind, and reactive WebSockets.',
   },
   {
-    icon: '📊',
+    icon: FaScaleBalanced,
     title: 'Double-Entry Financial Ledgers',
     description:
       'Architecting mathematically balanced double-entry accounting engines with dynamic single-balance netting between cash collections and digital payouts.',
@@ -75,7 +84,7 @@ const About = () => {
               Software Engineer
             </p>
             <p className="mt-2 text-xs text-neutral-300 text-center flex items-center justify-center gap-1.5">
-              <span className="text-mint">●</span> Kreethya (Pvt) Ltd • Sri Lanka
+              <FaCircle className="h-2 w-2 text-mint" /> Kreethya (Pvt) Ltd • Sri Lanka
             </p>
 
             <div className="mt-4 w-full p-3.5 rounded-2xl bg-white/5 border border-white/5 text-center">
@@ -107,8 +116,8 @@ const About = () => {
           {/* Engineering Narrative */}
           <article className="p-8 bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl shadow-2xl">
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-9 h-9 rounded-2xl bg-royal/20 flex items-center justify-center border border-royal/30 text-royal text-lg">
-                💻
+              <span className="w-9 h-9 rounded-2xl bg-royal/20 flex items-center justify-center border border-royal/30 text-lavender">
+                <FaLaptopCode className="h-4 w-4" />
               </span>
               <div>
                 <h3 className="text-xl font-bold text-white">Engineering Background &amp; Philosophy</h3>
@@ -141,7 +150,9 @@ const About = () => {
                 className="p-5 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/[0.08] transition-all"
               >
                 <div className="flex items-center gap-2.5 mb-2">
-                  <span className="text-lg">{pillar.icon}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-aqua/10 border border-aqua/20 text-aqua">
+                    <pillar.icon className="h-3.5 w-3.5" />
+                  </span>
                   <h4 className="text-sm font-bold text-white leading-snug">{pillar.title}</h4>
                 </div>
                 <p className="text-xs text-neutral-400 leading-relaxed">{pillar.description}</p>
@@ -161,8 +172,8 @@ const About = () => {
       >
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
-            <span className="w-9 h-9 rounded-2xl bg-mint/20 flex items-center justify-center border border-mint/30 text-mint text-lg">
-              🎓
+            <span className="w-9 h-9 rounded-2xl bg-mint/20 flex items-center justify-center border border-mint/30 text-mint">
+              <FaGraduationCap className="h-4 w-4" />
             </span>
             <div>
               <h3 className="text-xl font-bold text-white">Academic Foundation &amp; Verified Certifications</h3>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { FaGithub } from 'react-icons/fa';
 import GithubProjects, { RepoCover } from './GithubProjects';
 import KreethyaShowcase from './KreethyaShowcase';
+import { FaArrowUpRightFromSquare, FaCaretRight, FaCircleCheck, FaMagnifyingGlassPlus, FaArrowRight, FaXmark, FaBolt, FaLocationDot, FaRotate, FaScaleBalanced, FaPlug, FaCalendarDays, FaRobot, FaScrewdriverWrench, FaThumbtack, FaUsers, FaStar, FaCamera } from 'react-icons/fa6';
 
 const pickUProject = {
   id: 'picku',
@@ -435,7 +436,7 @@ const Projects = () => {
                     </p>
                   </div>
                   <span className="text-[10px] font-medium text-aqua bg-black/75 px-2.5 py-1 rounded-full border border-white/15 backdrop-blur-md">
-                    🔍 Full Size
+                    <FaMagnifyingGlassPlus className="inline -mt-0.5 mr-1" />Full Size
                   </span>
                 </div>
               </div>
@@ -493,7 +494,7 @@ const Projects = () => {
                 </p>
                 {pickUProject.ecosystem.map((comp) => (
                   <div key={comp} className="flex items-center gap-2 text-xs text-neutral-200">
-                    <span className="text-mint">✓</span>
+                    <FaCircleCheck className="h-3 w-3 shrink-0 text-mint" />
                     <span>{comp}</span>
                   </div>
                 ))}
@@ -514,9 +515,7 @@ const Projects = () => {
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-aqua hover:underline"
                   >
                     <span>Visit picku.lk</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3 h-3">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
+                    <FaArrowRight className="w-3 h-3" />
                   </a>
                 </div>
 
@@ -537,19 +536,19 @@ const Projects = () => {
                   </h4>
                   <div className="grid gap-2.5 sm:grid-cols-2 text-xs text-neutral-200">
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">⚡ Geospatial Dispatch Engine</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaBolt className="shrink-0 text-mint" /> Geospatial Dispatch Engine</strong>
                       PostGIS spatial radius discovery + Redis ring queues with delayed-job timeout workers.
                     </div>
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">📍 Telemetry &amp; Jump Filtering</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaLocationDot className="shrink-0 text-mint" /> Telemetry &amp; Jump Filtering</strong>
                       Headless background GPS coordinate sanitization rejecting low-accuracy pings &amp; speed anomalies.
                     </div>
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">🔄 Finite State Machine (FSM)</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaRotate className="shrink-0 text-mint" /> Finite State Machine (FSM)</strong>
                       Deterministic trip lifecycle with return-trip billing and automated waiting-time calculation.
                     </div>
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">⚖️ Double-Entry General Ledger</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaScaleBalanced className="shrink-0 text-mint" /> Double-Entry General Ledger</strong>
                       Balanced journal entries with automatic commission netting between cash and card payments.
                     </div>
                   </div>
@@ -584,7 +583,7 @@ const Projects = () => {
                   className="rounded-full border border-mint/30 bg-mint/10 px-6 py-3 text-sm font-semibold text-mint hover:bg-mint/20 hover:scale-105 transition-all inline-flex items-center gap-2"
                 >
                   <span>Visit Live Platform (picku.lk)</span>
-                  <span className="text-xs">↗</span>
+                  <FaArrowUpRightFromSquare className="h-3 w-3" />
                 </a>
               </div>
             </div>
@@ -656,7 +655,7 @@ const Projects = () => {
                     </p>
                   </div>
                   <span className="text-[10px] font-medium text-aqua bg-black/75 px-2.5 py-1 rounded-full border border-white/15 backdrop-blur-md">
-                    🔍 Full Size
+                    <FaMagnifyingGlassPlus className="inline -mt-0.5 mr-1" />Full Size
                   </span>
                 </div>
               </div>
@@ -708,7 +707,7 @@ const Projects = () => {
                 </p>
                 {driveCareProject.ecosystem.map((comp) => (
                   <div key={comp} className="flex items-center gap-2 text-xs text-neutral-200">
-                    <span className="text-lavender">✓</span>
+                    <FaCircleCheck className="h-3 w-3 shrink-0 text-lavender" />
                     <span>{comp}</span>
                   </div>
                 ))}
@@ -744,19 +743,19 @@ const Projects = () => {
                   </h4>
                   <div className="grid gap-2.5 sm:grid-cols-2 text-xs text-neutral-200">
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">🔌 Native WebSocket Protocol Client</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaPlug className="shrink-0 text-lavender" /> Native WebSocket Protocol Client</strong>
                       Engineered lightweight Dart WebSocket client communicating directly with Laravel Reverb for live updates.
                     </div>
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">📅 Concurrency-Safe Scheduling</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaCalendarDays className="shrink-0 text-lavender" /> Concurrency-Safe Scheduling</strong>
                       Intelligent availability engine prevents multi-service slot overlaps and handles temporary booking holds.
                     </div>
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">🤖 Dual-Persona Google Gemini AI</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaRobot className="shrink-0 text-lavender" /> Dual-Persona Google Gemini AI</strong>
                       Context-aware diagnostic assistant for drivers and predictive business intelligence for garage owners.
                     </div>
                     <div className="p-3 rounded-2xl bg-white/5 border border-white/5">
-                      <strong className="text-white block mb-1">🛠️ In-Flight Visit Adjustments</strong>
+                      <strong className="text-white flex items-center gap-1.5 mb-1"><FaScrewdriverWrench className="shrink-0 text-lavender" /> In-Flight Visit Adjustments</strong>
                       Mechanics append extra repair items mid-service with real-time recalculations pushed to the customer checkout screen.
                     </div>
                   </div>
@@ -788,7 +787,7 @@ const Projects = () => {
                   className="rounded-full border border-mint/30 bg-mint/10 px-6 py-3 text-sm font-semibold text-mint hover:bg-mint/20 hover:scale-105 transition-all inline-flex items-center gap-2"
                 >
                   <span>View on {driveCareProject.liveLabel}</span>
-                  <span className="text-xs">↗</span>
+                  <FaArrowUpRightFromSquare className="h-3 w-3" />
                 </a>
               </div>
             </div>
@@ -833,9 +832,7 @@ const Projects = () => {
                 onClick={() => setSelectedProject(null)}
                 aria-label="Close"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <FaXmark className="w-6 h-6" />
               </button>
 
               <div className="flex flex-col gap-6">
@@ -866,7 +863,7 @@ const Projects = () => {
                               ? `${selectedProject.liveCta}: ${selectedProject.liveLabel}`
                               : `Visit Live Platform: ${selectedProject.liveLabel || 'picku.lk'}`}
                           </span>
-                          <span>↗</span>
+                          <FaArrowUpRightFromSquare className="h-3 w-3" />
                         </a>
                       )}
                       {selectedProject.repoUrl && (
@@ -878,7 +875,7 @@ const Projects = () => {
                         >
                           <FaGithub size={14} />
                           <span>View Source on GitHub</span>
-                          <span>↗</span>
+                          <FaArrowUpRightFromSquare className="h-3 w-3" />
                         </a>
                       )}
                     </div>
@@ -896,7 +893,8 @@ const Projects = () => {
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
                       <h4 className="text-sm font-bold uppercase tracking-wider text-white flex items-center gap-2">
-                        <span>📸 Verified Platform Screenshots</span>
+                        <FaCamera className="text-aqua" />
+                        <span>Verified Platform Screenshots</span>
                         <span className="text-xs text-neutral-400 font-normal">
                           (Click any image to view in full resolution)
                         </span>
@@ -1022,7 +1020,7 @@ const Projects = () => {
                               )}
 
                               <span className="absolute top-3 right-3 z-20 text-[10px] font-medium px-2 py-0.5 rounded-full border border-white/10 bg-black/70 text-aqua opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-md">
-                                🔍 Full Size
+                                <FaMagnifyingGlassPlus className="inline -mt-0.5 mr-1" />Full Size
                               </span>
                             </div>
 
@@ -1057,7 +1055,7 @@ const Projects = () => {
                     {/* The Distributed Systems / Engineering Challenge */}
                     <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
                       <h4 className="text-sm font-bold uppercase tracking-wider text-aqua mb-2">
-                        📌 The Problem &amp; Architectural Context
+                        <FaThumbtack className="inline -mt-0.5 mr-1.5" />The Problem &amp; Architectural Context
                       </h4>
                       <p className="text-sm text-neutral-300 leading-relaxed">
                         {selectedProject.challenge}
@@ -1068,7 +1066,7 @@ const Projects = () => {
                     {selectedProject.multiRoleWorkflows && (
                       <div>
                         <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3">
-                          👥 Multi-Role User Workflows
+                          <FaUsers className="inline -mt-0.5 mr-1.5 text-lavender" />Multi-Role User Workflows
                         </h4>
                         <div className="space-y-3">
                           {selectedProject.multiRoleWorkflows.map((roleObj) => (
@@ -1077,7 +1075,7 @@ const Projects = () => {
                               <ul className="space-y-1.5 text-xs text-neutral-300">
                                 {roleObj.points.map((p, idx) => (
                                   <li key={idx} className="flex items-start gap-2">
-                                    <span className="text-mint mt-0.5">▹</span>
+                                    <FaCaretRight className="text-mint mt-0.5 shrink-0" />
                                     <span>{p}</span>
                                   </li>
                                 ))}
@@ -1091,7 +1089,7 @@ const Projects = () => {
                     {/* Layered Technology Stack */}
                     <div>
                       <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3">
-                        🛠️ Layered Technology Stack
+                        <FaScrewdriverWrench className="inline -mt-0.5 mr-1.5 text-mint" />Layered Technology Stack
                       </h4>
                       <div className="grid gap-3 text-xs">
                         {Object.entries(selectedProject.techStack).map(([layer, techs]) => (
@@ -1108,7 +1106,7 @@ const Projects = () => {
                     {/* Engineering Pillars */}
                     <div>
                       <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3">
-                        🌟 Key Technical Highlights &amp; Engineering Challenges
+                        <FaStar className="inline -mt-0.5 mr-1.5 text-mint" />Key Technical Highlights &amp; Engineering Challenges
                       </h4>
                       <div className="space-y-4">
                         {selectedProject.highlights.map((sec) => (
@@ -1117,7 +1115,7 @@ const Projects = () => {
                             <ul className="space-y-1.5 text-xs text-neutral-300">
                               {sec.points.map((p, idx) => (
                                 <li key={idx} className="flex items-start gap-2">
-                                  <span className="text-mint mt-0.5">▹</span>
+                                  <FaCaretRight className="text-mint mt-0.5 shrink-0" />
                                   <span>{p}</span>
                                 </li>
                               ))}
@@ -1144,7 +1142,7 @@ const Projects = () => {
                       <ul className="space-y-1.5 text-sm">
                         {selectedProject.highlights.map((h, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <span className="text-mint mt-0.5">▹</span>
+                            <FaCaretRight className="text-mint mt-0.5 shrink-0" />
                             <span>{h}</span>
                           </li>
                         ))}
@@ -1173,9 +1171,7 @@ const Projects = () => {
               className="absolute top-5 right-5 z-20 rounded-full bg-white/10 hover:bg-white/20 p-3 text-white transition-colors cursor-pointer shadow-lg"
               aria-label="Close Lightbox"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <FaXmark className="w-6 h-6" />
             </button>
 
             <motion.div

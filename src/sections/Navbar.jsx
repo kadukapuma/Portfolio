@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { FaBars, FaXmark } from 'react-icons/fa6';
 
 const navItems = [
   { name: 'Home', href: '#home', id: 'home' },
@@ -84,15 +85,7 @@ const Navbar = () => {
             className="flex cursor-pointer text-neutral-400 hover:text-white focus:outline-none sm:hidden p-1.5 rounded-lg border border-white/10 bg-white/5 transition-colors"
             aria-label="Toggle Menu"
           >
-            <img
-              src={
-                isOpen
-                  ? `${import.meta.env.BASE_URL}assets/close.svg`
-                  : `${import.meta.env.BASE_URL}assets/menu.svg`
-              }
-              className="w-5 h-5"
-              alt="toggle menu"
-            />
+            {isOpen ? <FaXmark className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
           </button>
 
           {/* Desktop Navigation */}

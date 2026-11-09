@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import { FaArrowUpRightFromSquare, FaCaretRight } from 'react-icons/fa6';
 
 const experiences = [
   {
@@ -150,7 +151,7 @@ const Experience = () => {
                         rel="noreferrer"
                         className="inline-flex items-center gap-1 font-semibold text-mint hover:underline"
                       >
-                        {exp.link.label} <span className="text-xs">↗</span>
+                        {exp.link.label} <FaArrowUpRightFromSquare className="h-3 w-3" />
                       </a>
                     </>
                   )}
@@ -173,7 +174,7 @@ const Experience = () => {
               <ul className="space-y-2 text-sm text-neutral-300">
                 {exp.achievements.map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <span className="text-mint mt-1">▹</span>
+                    <FaCaretRight className="text-mint mt-1 shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -200,7 +201,7 @@ const Experience = () => {
                           <span className="text-mint">{proj.label}</span> • {proj.note}
                         </p>
                       </div>
-                      <span className="text-xs text-neutral-400 group-hover/proj:text-aqua">↗</span>
+                      <FaArrowUpRightFromSquare className="h-3 w-3 shrink-0 text-neutral-400 group-hover/proj:text-aqua" />
                     </a>
                   ))}
                 </div>

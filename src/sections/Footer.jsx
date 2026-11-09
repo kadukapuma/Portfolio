@@ -1,3 +1,5 @@
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from 'react-icons/fa6';
+
 const quickLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
@@ -10,17 +12,17 @@ const quickLinks = [
 const socialLinks = [
   {
     name: 'LinkedIn',
-    icon: `${import.meta.env.BASE_URL}assets/socials/linkedIn.svg`,
+    icon: FaLinkedinIn,
     href: 'https://linkedin.com/in/randika-kadukapuma',
   },
   {
     name: 'GitHub',
-    icon: `${import.meta.env.BASE_URL}assets/logos/github.svg`,
+    icon: FaGithub,
     href: 'https://github.com/kadukapuma',
   },
   {
     name: 'WhatsApp',
-    icon: `${import.meta.env.BASE_URL}assets/socials/whatsApp.svg`,
+    icon: FaWhatsapp,
     href: 'https://wa.me/94740789832',
   },
 ];
@@ -77,7 +79,7 @@ const Footer = () => {
                 aria-label={social.name}
                 title={social.name}
               >
-                <img loading="lazy" decoding="async" src={social.icon} alt={social.name} className="h-4 w-4" />
+                <social.icon className="h-4 w-4 text-neutral-200" aria-hidden="true" />
               </a>
             ))}
           </div>

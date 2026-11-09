@@ -16,6 +16,7 @@ import {
 import { HiUserGroup } from 'react-icons/hi';
 import { githubProjects } from '../constants/githubProjects';
 import Carousel3D from '../components/Carousel3D';
+import { FaArrowUpRightFromSquare, FaCaretRight, FaMagnifyingGlassPlus } from 'react-icons/fa6';
 
 const techIcons = {
   laravel: SiLaravel,
@@ -123,7 +124,7 @@ export const ProjectShowcase = ({ project, reverse, onSelect, onOpenImage }) => 
               </span>
               {current && (
                 <span className="text-[10px] font-medium text-aqua bg-black/75 px-2.5 py-1 rounded-full border border-white/15 backdrop-blur-md">
-                  🔍 Full Size
+                  <FaMagnifyingGlassPlus className="inline -mt-0.5 mr-1" />Full Size
                 </span>
               )}
             </div>
@@ -194,7 +195,7 @@ export const ProjectShowcase = ({ project, reverse, onSelect, onOpenImage }) => 
               <div className="grid gap-2.5 sm:grid-cols-2 text-xs text-neutral-200">
                 {project.highlights.slice(0, 4).map((h) => (
                   <div key={h} className="p-3 rounded-2xl bg-white/5 border border-white/5 flex items-start gap-2">
-                    <span className={`mt-0.5 ${a.text}`}>▹</span>
+                    <FaCaretRight className={`mt-0.5 shrink-0 ${a.text}`} />
                     <span>{h}</span>
                   </div>
                 ))}
@@ -217,7 +218,7 @@ export const ProjectShowcase = ({ project, reverse, onSelect, onOpenImage }) => 
                 className="rounded-full border border-mint/30 bg-mint/10 px-6 py-3 text-sm font-semibold text-mint hover:bg-mint/20 hover:scale-105 transition-all inline-flex items-center gap-2"
               >
                 <span>{project.liveCta ?? `Visit ${project.liveLabel}`}</span>
-                <span className="text-xs">↗</span>
+                <FaArrowUpRightFromSquare className="h-3 w-3" />
               </a>
             )}
             <a
@@ -274,7 +275,7 @@ const CompactCard = ({ project, index, onSelect }) => (
         <div className="mt-4 space-y-1.5">
           {project.highlights.slice(0, 3).map((h) => (
             <div key={h} className="flex items-start gap-2 text-xs text-neutral-300 lg:text-sm">
-              <span className="text-mint mt-0.5">▹</span>
+              <FaCaretRight className="text-mint mt-0.5 shrink-0" />
               <span>{h}</span>
             </div>
           ))}
