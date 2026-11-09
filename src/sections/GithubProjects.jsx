@@ -15,6 +15,7 @@ import {
 } from 'react-icons/si';
 import { HiUserGroup } from 'react-icons/hi';
 import { githubProjects } from '../constants/githubProjects';
+import Carousel3D from '../components/Carousel3D';
 
 const techIcons = {
   laravel: SiLaravel,
@@ -79,7 +80,7 @@ export const RepoCover = ({ project, className = 'h-48' }) => {
   );
 };
 
-const ProjectShowcase = ({ project, reverse, onSelect, onOpenImage }) => {
+export const ProjectShowcase = ({ project, reverse, onSelect, onOpenImage }) => {
   const [active, setActive] = useState(0);
   const a = accentOf(project);
   const shots = project.gallery;
@@ -241,7 +242,7 @@ const CompactCard = ({ project, index, onSelect }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.5, delay: index * 0.1 }}
-    className="group flex cursor-pointer flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:bg-white/[0.08]"
+    className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:bg-white/[0.08]"
     onClick={() => onSelect(project)}
     title={`View details for ${project.title}`}
   >
@@ -251,10 +252,10 @@ const CompactCard = ({ project, index, onSelect }) => (
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="h-48 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          className="h-48 sm:h-72 lg:h-80 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
       ) : (
-        <RepoCover project={project} />
+        <RepoCover project={project} className="h-48 sm:h-72 lg:h-80" />
       )}
       <span
         className={`absolute top-3 right-3 z-20 rounded-full border px-2.5 py-1 text-[10px] font-semibold backdrop-blur-md ${project.statusColor}`}
@@ -263,16 +264,16 @@ const CompactCard = ({ project, index, onSelect }) => (
       </span>
     </div>
 
-    <div className="flex flex-1 flex-col justify-between p-5 md:p-6">
+    <div className="flex flex-1 flex-col justify-between p-4 sm:p-6 lg:p-7">
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-wider text-neutral-400">{project.category}</p>
-        <h4 className="mt-1 text-lg md:text-xl font-bold text-white transition-colors group-hover:text-aqua">
+        <h4 className="mt-1 text-lg sm:text-xl lg:text-2xl font-bold leading-snug text-white transition-colors group-hover:text-aqua">
           {project.title}
         </h4>
-        <p className="mt-2 text-sm leading-relaxed text-neutral-300">{project.description}</p>
+        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-neutral-300 sm:line-clamp-none lg:text-base">{project.description}</p>
         <div className="mt-4 space-y-1.5">
           {project.highlights.slice(0, 3).map((h) => (
-            <div key={h} className="flex items-start gap-2 text-xs text-neutral-300">
+            <div key={h} className="flex items-start gap-2 text-xs text-neutral-300 lg:text-sm">
               <span className="text-mint mt-0.5">▹</span>
               <span>{h}</span>
             </div>
@@ -309,39 +310,14 @@ const CompactCard = ({ project, index, onSelect }) => (
   </motion.article>
 );
 
-const GithubProjects = ({ onSelect, onOpenImage }) => {
-  const featured = githubProjects.filter((p) => !p.compact);
-  const more = githubProjects.filter((p) => p.compact);
-
-  return (
-    <>
-      <div className="mt-14 flex flex-col gap-10">
-        {featured.map((project, index) => (
-          <ProjectShowcase
-            key={project.id}
-            project={project}
-            reverse={index % 2 === 0}
-            onSelect={onSelect}
-            onOpenImage={onOpenImage}
-          />
-        ))}
-      </div>
-
-      {more.length > 0 && (
-        <div className="mt-14">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="h-2.5 w-2.5 rounded-full bg-aqua"></span>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-300">More Projects</h3>
-          </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {more.map((project, index) => (
-              <CompactCard key={project.id} project={project} index={index} onSelect={onSelect} />
-            ))}
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+const GithubProjects = ({ onSelect }) => (
+  <div className="mt-14">
+    <Carousel3D
+      items={githubProjects.filter((p) => p.id !== 'kreethya-website')}
+      getKey={(p) => p.id}
+      renderItem={(project) => <CompactCard project={project} index={0} onSelect={onSelect} />}
+    />
+  </div>
+);
 
 export default GithubProjects;

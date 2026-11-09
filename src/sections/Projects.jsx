@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FaGithub } from 'react-icons/fa';
 import GithubProjects, { RepoCover } from './GithubProjects';
+import KreethyaShowcase from './KreethyaShowcase';
 
 const pickUProject = {
   id: 'picku',
@@ -139,6 +140,9 @@ const driveCareProject = {
   subtitle: 'Multi-Tier Ecosystem with Flutter Mobile App, Vue 3 Web Portal & Google Gemini AI Engine',
   status: 'Academic Capstone Project',
   statusColor: 'border-royal/40 bg-royal/10 text-lavender',
+  liveUrl: 'https://kreethya.com',
+  liveLabel: 'kreethya.com',
+  liveCta: 'View on',
   image: encodeURI(`${import.meta.env.BASE_URL}assets/drive care/Screenshot 2026-09-05 140241.png`),
   gallery: [
     {
@@ -453,6 +457,15 @@ const Projects = () => {
             </div>
           </div>
         </motion.article>
+
+        {/* Kreethya.com Company Website Showcase Card */}
+        <KreethyaShowcase
+          onSelect={(project) => {
+            setGalleryFilter('all');
+            setSelectedProject(project);
+          }}
+          onOpenImage={setLightboxImage}
+        />
       </div>
 
       {/* SECTION 2: Flagship Academic Project: DriveCare */}
@@ -635,6 +648,15 @@ const Projects = () => {
                 >
                   Explore DriveCare Architecture &amp; Case Study
                 </button>
+                <a
+                  href={driveCareProject.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-mint/30 bg-mint/10 px-6 py-3 text-sm font-semibold text-mint hover:bg-mint/20 hover:scale-105 transition-all inline-flex items-center gap-2"
+                >
+                  <span>View on {driveCareProject.liveLabel}</span>
+                  <span className="text-xs">↗</span>
+                </a>
               </div>
             </div>
           </div>
