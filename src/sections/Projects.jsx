@@ -689,7 +689,7 @@ const Projects = () => {
 
             {/* Modal Dialog */}
             <motion.div
-              className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-3xl bg-neutral-950/95 border border-white/20 backdrop-blur-2xl p-6 md:p-10 shadow-[0_0_60px_rgba(0,0,0,0.8)] text-left"
+              className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto modal-scrollbar rounded-3xl bg-neutral-950/95 border border-white/20 backdrop-blur-2xl p-6 md:p-10 shadow-[0_0_60px_rgba(0,0,0,0.8)] text-left"
               initial={{ y: 40, scale: 0.95 }}
               animate={{ y: 0, scale: 1 }}
               exit={{ y: 20, scale: 0.95 }}

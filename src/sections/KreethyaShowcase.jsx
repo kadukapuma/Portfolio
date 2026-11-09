@@ -8,7 +8,7 @@ const base = githubProjects.find((p) => p.id === 'kreethya-website');
 const kreethyaProject = {
   ...base,
   category: 'Commercial Production Website',
-  subtitle: 'Official Company Website for Kreethya — Software Development Studio',
+  subtitle: 'Official Company Website for Kreethya (Pvt) Ltd — Software Development Studio',
   status: 'Live in Production • kreethya.com',
   liveCta: 'Visit Live Website',
   ecosystem: [

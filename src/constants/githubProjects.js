@@ -97,9 +97,9 @@ export const githubProjects = [
     liveUrl: 'https://kreethya.com',
     liveLabel: 'kreethya.com',
     description:
-      'Official website for Kreethya, a software development company: animated hero, services, portfolio, process and contact sections.',
+      'Official website for Kreethya (Pvt) Ltd, a software development company: animated hero, services, portfolio, process and contact sections.',
     detailedDescription:
-      'The public website for Kreethya, built with React and Vite using the React Compiler. It presents the company\'s services (web, mobile, custom software, UI/UX, cloud and support), showcases delivered products such as DriveCare, the real-time vehicle service booking and garage management ecosystem, explains the delivery process and collects project enquiries. It uses an animated intro, a friendly mascot assistant and responsive layouts tuned for mobile.',
+      'The public website for Kreethya (Pvt) Ltd, built with React and Vite using the React Compiler. It presents the company\'s services (web, mobile, custom software, UI/UX, cloud and support), showcases delivered products such as DriveCare, the real-time vehicle service booking and garage management ecosystem, explains the delivery process and collects project enquiries. It uses an animated intro, a friendly mascot assistant and responsive layouts tuned for mobile.',
     highlights: [
       'Showcases DriveCare — real-time vehicle service booking & garage management ecosystem',
       'React + Vite with the React Compiler enabled',
@@ -130,9 +130,12 @@ export const githubProjects = [
     id: 'jewellery-system',
     title: 'Aureon — Jewellery Management System',
     category: 'Business Management System',
-    status: 'In Development',
+    status: 'In Development • aureon.kreethya.com',
     statusColor: 'border-sand/40 bg-sand/10 text-sand',
     repoUrl: `${GH}/-jewellery--system`,
+    liveUrl: 'https://aureon.kreethya.com/',
+    liveLabel: 'aureon.kreethya.com',
+    liveCta: 'Visit',
     description:
       'Full shop management for a jewellery business: gold prices by karat, barcode-tagged stock, craftsmen jobs, sales, credit and profit reports.',
     detailedDescription:

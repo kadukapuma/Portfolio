@@ -1,5 +1,12 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import emailjs from '@emailjs/browser';
+
+// EmailJS config (set these in .env / GitHub Actions secrets)
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // notification to you
+const EMAILJS_AUTOREPLY_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID; // optional confirmation to the visitor
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const socials = [
   {
@@ -22,7 +29,8 @@ const socials = [
 const Contact = () => {
   const [copied, setCopied] = useState(false);
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState('');
 
   const email = 'kadukapuma@gmail.com';
 
@@ -32,18 +40,54 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formState.name || !formState.email || !formState.message) return;
+    const name = formState.name.trim();
+    const fromEmail = formState.email.trim();
+    const message = formState.message.trim();
+    if (!name || !fromEmail || !message) return;
 
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formState.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`
-    );
-    window.open(`mailto:${email}?subject=${subject}&body=${body}`, '_blank');
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus('error');
+      setErrorMsg(`The contact form isn't configured yet. Please email me directly at ${email}.`);
+      return;
+    }
 
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    // These keys must match the {{variables}} used in your EmailJS templates
+    const templateParams = {
+      from_name: name,
+      from_email: fromEmail,
+      reply_to: fromEmail,
+      to_email: email,
+      message,
+      subject: `Portfolio Inquiry from ${name}`,
+      sent_at: new Date().toLocaleString(),
+    };
+
+    setStatus('sending');
+    setErrorMsg('');
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, {
+        publicKey: EMAILJS_PUBLIC_KEY,
+      });
+
+      if (EMAILJS_AUTOREPLY_TEMPLATE_ID) {
+        // Confirmation copy to the visitor; don't fail the submit if this one errors
+        emailjs
+          .send(EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_TEMPLATE_ID, templateParams, {
+            publicKey: EMAILJS_PUBLIC_KEY,
+          })
+          .catch((err) => console.warn('Auto-reply failed:', err));
+      }
+
+      setStatus('success');
+      setFormState({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 6000);
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setStatus('error');
+      setErrorMsg(`Something went wrong sending your message. Please try again or email me at ${email}.`);
+    }
   };
 
   return (
@@ -218,15 +262,21 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-royal to-lavender py-3.5 px-6 text-sm font-semibold text-white shadow-lg shadow-royal/30 hover:shadow-royal/50 hover:scale-[1.02] transition-all cursor-pointer"
+              disabled={status === 'sending'}
+              className="mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-royal to-lavender py-3.5 px-6 text-sm font-semibold text-white shadow-lg shadow-royal/30 hover:shadow-royal/50 hover:scale-[1.02] transition-all cursor-pointer"
             >
-              Send Message
+              {status === 'sending' ? 'Sending...' : 'Send Message'}
               <img src={`${import.meta.env.BASE_URL}assets/arrow-right.svg`} alt="arrow" className="h-4 w-4" />
             </button>
 
-            {submitted && (
-              <p className="text-center text-xs text-mint font-medium animate-pulse">
-                Opening your email client to send message...
+            {status === 'success' && (
+              <p className="text-center text-xs text-mint font-medium" role="status">
+                Thanks! Your message has been sent. I&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="text-center text-xs text-coral font-medium" role="alert">
+                {errorMsg}
               </p>
             )}
           </form>

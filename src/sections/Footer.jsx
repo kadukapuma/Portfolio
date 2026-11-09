@@ -40,8 +40,8 @@ const Footer = () => {
               Randika
             </a>
             <p className="mt-4 text-sm leading-relaxed text-neutral-300 md:text-base">
-              Software Engineer at <strong className="text-white">Smart Omega Group</strong>. 
-              Engineering scalable web applications, real-time mobility systems, and high-performance digital experiences.
+              Software Engineer at <strong className="text-white">Kreethya (Pvt) Ltd</strong>. 
+              Engineering scalable web applications, business management systems, and high-performance digital experiences.
             </p>
           </div>
 

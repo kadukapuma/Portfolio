@@ -1,9 +1,9 @@
 import { motion } from 'motion/react';
 
 const stats = [
-  { label: 'Flagship Platform', value: 'picku.lk' },
+  { label: 'Flagship Platform', value: 'aureon.kreethya.com' },
   { label: 'Current Role', value: 'Software Engineer' },
-  { label: 'Company', value: 'Smart Omega Group' },
+  { label: 'Company', value: 'Kreethya (Pvt) Ltd' },
   { label: 'Degree', value: 'BSc. in IT (SIBA)' },
 ];
 
@@ -76,13 +76,13 @@ const About = () => {
               Software Engineer
             </p>
             <p className="mt-2 text-xs text-neutral-300 text-center flex items-center justify-center gap-1.5">
-              <span className="text-mint">●</span> Smart Omega Group • Sri Lanka
+              <span className="text-mint">●</span> Kreethya (Pvt) Ltd • Sri Lanka
             </p>
 
             <div className="mt-4 w-full p-3.5 rounded-2xl bg-white/5 border border-white/5 text-center">
               <span className="text-xs text-neutral-400 block mb-1">Current Active Focus</span>
               <span className="text-sm font-semibold text-white">
-                Engineering <strong className="text-aqua">PickU</strong> (picku.lk)
+                Engineering <strong className="text-aqua">Aureon</strong> (aureon.kreethya.com)
               </span>
             </div>
           </div>
@@ -118,8 +118,11 @@ const About = () => {
             </div>
             <p className="subtext leading-relaxed text-neutral-300">
               I am a Software Engineer specialized in building production-grade distributed applications,
-              real-time mobility platforms, and high-performance backend infrastructure. Currently at{' '}
-              <strong className="text-white">Smart Omega Group</strong>, I lead the core engineering and
+              real-time mobility platforms, and high-performance backend infrastructure. I currently work at{' '}
+              <strong className="text-white">Kreethya (Pvt) Ltd</strong>, building business software such as{' '}
+              <strong className="text-aqua">Aureon</strong>, a jewellery shop management system, and{' '}
+              <strong className="text-aqua">FixFlow</strong>, a multi-tenant service center SaaS. Previously at{' '}
+              <strong className="text-white">Smart Omega Group</strong>, I led the core engineering and
               cloud deployment of <strong className="text-aqua">PickU (picku.lk)</strong>—a multi-platform on-demand
               ride-hailing and logistics ecosystem featuring cross-platform mobile apps (iOS &amp; Android), a real-time
               Laravel 12 &amp; PostgreSQL/PostGIS backend, and an operations portal.

@@ -142,3 +142,26 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Themed scrollbar for popups/modals */
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(122, 87, 219, 0.6) transparent;
+}
+.modal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 24px; /* keep the thumb clear of the rounded corners */
+}
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #5c33cc, #7a57db);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #7a57db, #33c2cc);
+  background-clip: padding-box;
+}
